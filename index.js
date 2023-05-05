@@ -9,20 +9,17 @@ class SortedList {
       throw new Error('OutOfBounds');
     }
 
-    let index = this.items.findIndex((element) => element >= item);
-
-    //In most languages, -1 is a number that cannot represent an array index. Therefore, if .findIndex() method returns -1 it means that there is no such element for sure
-    if (index === -1) {
-      index = this.items.length;
-    }
-
-    //injecting the item being a number in this case at the end if does not exist, otherwise, gets injected at position of first occurance.  
-    this.items.splice(index, 0, item);
+    this.items.push(item);
+    this.items.sort((a, b) => a - b);
     this.length = this.items.length;
   }
 
   get(pos) {
 
+    if (pos < 0 || pos >= this.items.length) {
+      throw new Error('OutOfBounds');
+    }
+    return this.items[pos];
   }
 
   max() {}
