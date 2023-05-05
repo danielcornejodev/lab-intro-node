@@ -22,9 +22,22 @@ class SortedList {
     return this.items[pos];
   }
 
-  max() {}
+  max() {
+    if (this.length === 0) {
+      throw new Error('EmptySortedList');
+    }
 
-  min() {}
+    return Math.max(...this.items);
+    
+  }
+
+  min() {
+    if (this.length === 0) {
+      throw new Error('EmptySortedList');
+    }
+
+    return Math.min(...this.items);
+  }
 
   sum() {}
 
