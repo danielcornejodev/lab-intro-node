@@ -35,9 +35,21 @@ class SortedList {
 
   }
 
-  sum() {}
+  sum() {
+    //use reduce method
+    if(!this.items.length) return 0;
 
-  avg() {}
+    return this.items.reduce((accum, init) => {
+      return accum + init;
+    })
+  }
+
+  avg() {
+    //use reduce method
+    if(!this.items.length) return 0;
+
+    return this.sum()/this.length;
+  }
 }
 
 module.exports = SortedList;
